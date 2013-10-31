@@ -1,0 +1,53 @@
+<!doctype html style="height:100%">
+<html lang="en" ng-app="MineSweeper">
+<head>
+  <meta charset="utf-8">
+  <title>Mine Sweeper</title>
+  <link rel="stylesheet" href="css/kube.min.css"/>
+  <link rel="stylesheet" href="css/minesweeper.css"/>
+  <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css"/>
+</head>
+<body class="units-row" ng-controller="AppCtrl">
+  <div class="unit-100">
+    <h1> <i class="fa fa-crosshairs"></i> Mine Sweeper</h1>
+  </div>
+  
+  <div class='unit-100' style="min-height:100px">
+    <img width="200" ng-src="assets/images/lose.gif" ng-show="state.error"></img>
+    <img width="200" ng-src="assets/images/win.gif" ng-show="state.success"></img>
+  </div>
+  
+  <div class="unit-100">
+    <button class="btn btn-small" ng-click="settings = !settings"><i class="fa fa-cog"></i></button>
+    <button class="btn btn-small" ng-click="newGame()">New game</button>
+    <button class="btn btn-small" ng-click="validate($event)">Check</button>
+  </div>
+  
+  <div ng-show="settings" class="settings">
+    <span>Select a difficulty :</span>
+    <form class="forms">
+      <ul class="forms-list">
+        <li ng-repeat="d in difficulties">
+          <input ng-model="$parent.difficulty" ng-value="d" type="radio">
+          <label>{{d.label}}</label>
+        </li>
+      </ul>
+    </form>
+    <span class="label label-data">Changes will take effect at next game</span>
+  </div>
+  
+  <div class='unit-100'>
+    <div class="tile-row" ng-repeat="row in model">
+      <tile data="tile" ng-repeat="tile in row" on-click="onTileClick(tile)" on-alt-click="onTileAltClick(tile)"></tile>
+    </div>
+  </div>
+  
+  <div class='unit-100'>
+    <span ng-show="state.success">Victory !</span>
+    <span ng-show="state.error">Oh noes !</span>
+  </div>
+  
+</body>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="index.js"></script>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "minesweeper",
+  "version": "0.0.0",
+  "authors": [
+    "sebastienfragnaud"
+  ],
+  "main": "index.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

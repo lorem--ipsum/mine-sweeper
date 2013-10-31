@@ -1,0 +1,14 @@
+{
+  "name": "minesweeper",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "author": "sebastienfragnaud",
+  "license": "MIT",
+  "devDependencies": {
+    "karma-coverage": "~0.1.0"
+  }
+}

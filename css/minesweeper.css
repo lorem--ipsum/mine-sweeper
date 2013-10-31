@@ -1,0 +1,57 @@
+body {
+  width: 80%;
+  margin: 0 auto;
+}
+
+body.fail {
+  background-color: rgb(224, 100, 100);
+}
+
+.tile {
+  vertical-align: top;
+  margin: 2px;
+  display: inline-block;
+  background-color: rgb(224, 224, 224);
+  border: 1px solid grey;
+  width: 20px;
+  height: 20px;
+}
+
+.tile>span {
+  font-family: monospace;
+  text-align: center;
+}
+
+.tile>i {
+  padding-top: 3px;
+  color: rgb(180, 70, 70);
+}
+
+.tile:hover {
+  border: 1px solid steelblue;
+  background-color: rgb(200, 200, 224);
+}
+
+.tile.discovered {
+  background-color: rgb(200, 224, 200);
+}
+
+.tile.boom {
+  background-color: rgb(224, 100, 100);
+}
+
+.unit-100 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.settings {
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 200px;
+  margin: 20px auto;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 5px;
+}
