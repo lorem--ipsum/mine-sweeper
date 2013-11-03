@@ -9,6 +9,7 @@ angular.module("MineSweeper", [])
   ];
   
   $scope.newGame = function() {
+    mixpanel.track("New game", {difficulty: $scope.difficulty.label});
     $scope.settings = false;
     $scope.state = undefined;
     
@@ -17,6 +18,7 @@ angular.module("MineSweeper", [])
   };
   
   $scope.croakAndDie = function() {
+    mixpanel.track("Fail", {difficulty: $scope.difficulty.label});
     $scope.state = {error: true};
     $scope.model.forEach(function(row) {
       row.forEach(function(t) {
@@ -42,11 +44,13 @@ angular.module("MineSweeper", [])
   
   $scope.validate = function(event) {
     if (event.altKey) {
+      mixpanel.track("Cheat", {difficulty: $scope.difficulty.label});
       $utils.allYourBase($scope.model);
       return;
     }
     
     if ($utils.check($scope.model) === true) {
+      mixpanel.track("Win", {difficulty: $scope.difficulty.label});
       $scope.state = {success: true};
     } else {
       $scope.croakAndDie();
